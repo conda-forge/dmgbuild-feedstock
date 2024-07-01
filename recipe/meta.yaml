@@ -25,7 +25,7 @@ requirements:
     - python >=3.8
     - ds_store >=1.1.0
     - mac_alias >=2.0.1
-    - __osx  # [osx]
+    - __osx
 
 test:
   imports:
