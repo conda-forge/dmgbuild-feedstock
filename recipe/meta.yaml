@@ -10,7 +10,7 @@ source:
   sha256: 7ced2603d684e29c22b4cd507d1e15a1907e91b86259924b8cfe480d80553b43
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   entry_points:
@@ -23,6 +23,7 @@ requirements:
     - setuptools
   run:
     - python >=3.8
+    - importlib_resources >=5.9  # [py<39]
     - ds_store >=1.1.0
     - mac_alias >=2.0.1
     - __osx
