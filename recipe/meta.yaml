@@ -23,7 +23,7 @@ requirements:
     - setuptools
   run:
     - python >=3.8
-    - importlib_resources >=5.9  # [py<39]
+    - importlib_resources >=5.9
     - ds_store >=1.1.0
     - mac_alias >=2.0.1
     - __osx
