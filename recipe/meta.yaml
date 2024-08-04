@@ -1,5 +1,5 @@
 {% set name = "dmgbuild" %}
-{% set version = "1.6.1" %}
+{% set version = "1.6.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 7ced2603d684e29c22b4cd507d1e15a1907e91b86259924b8cfe480d80553b43
+  sha256: dba01d29f10c6804f2d72301600ddd03724daa41cd21a95409c44a3e199b19aa
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   entry_points:
