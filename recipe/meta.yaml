@@ -6,11 +6,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: dba01d29f10c6804f2d72301600ddd03724daa41cd21a95409c44a3e199b19aa
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   entry_points:
@@ -18,11 +18,11 @@ build:
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - pip
     - setuptools
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - importlib_resources >=5.9
     - ds_store >=1.1.0
     - mac_alias >=2.0.1
@@ -36,6 +36,7 @@ test:
     - pytest
     - pytest-cov
     - tox
+    - python {{ python_min }}
   source_files:
     - tests
   commands:
