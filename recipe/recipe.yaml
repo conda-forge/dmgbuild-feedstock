@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: dmgbuild
-  version: "1.6.6"
+  version: "1.6.7"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: 72ce448feec6aa24dba5e777c44a0397b7ae1b4d86fb4dd537e44cf1653c03ec
+  sha256: 676b17acd448899f6d4a83b2184e0657480444ecb6ac9c4922889efad9e5dbfb
 
 build:
   number: 0
