@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: dmgbuild
-  version: "1.6.7"
+  version: "2.0.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: 676b17acd448899f6d4a83b2184e0657480444ecb6ac9c4922889efad9e5dbfb
+  sha256: 8775460fd888aebf56ed1eb9b947ac67e0a100eae2c23718aceb6bfd54ef99d3
 
 build:
   number: 0
@@ -24,10 +24,10 @@ requirements:
   host:
     - python ${{ python_min }}.*
     - pip
-    - setuptools
+    - setuptools ==84.0.0
+    - setuptools_scm ==10.3.4
   run:
     - python >=${{ python_min }}
-    - importlib_resources >=5.9
     - ds_store >=1.1.0
     - mac_alias >=2.0.1
     - __osx
@@ -36,16 +36,17 @@ tests:
   - python:
       imports:
         - dmgbuild
-      python_version: ${{ python_min }}.*
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
   - files:
       source:
         - tests
     requirements:
       run:
-        - pip
-        - pytest
-        - pytest-cov
-        - tox
+        - coverage ==7.16.2
+        - pytest ==9.1.1
+        - tox-uv ==1.36.0
         - python ${{ python_min }}.*
     script:
       - tox -e py
